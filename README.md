@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This code interfaces with Uni-Mol and learns properties, such as functional parameters and Hubbard-U values, from geometries.
+This code interfaces with Uni-Mol, DPA3, and some other neural networks (to be added), and learns properties, such as functional parameters and Hubbard-U values, from geometries.
 
 ## Installation
 
