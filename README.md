@@ -1,5 +1,7 @@
 # Uni-Mol-XC
 
+![Uni-Mol-XC Logo](docs/assets/images/index.jpg)
+
 ## Introduction
 
 This code interfaces with Uni-Mol, DPA3, and some other neural networks (to be added), and learns properties, such as functional parameters and Hubbard-U values, from geometries.
