@@ -57,9 +57,10 @@ def generate_from_abacus(job,
     type_map_model = dpmodel.get_type_map()
     atomtype = np.array([type_map_model.index(data['atom_names'][it_at])
                          for it_at in data['atom_types']])
-    # the DeePMD model may crash for the lattice that all vectors
-    # have fewer than two zeros, like fcc: [1, 1, 0], [1, 0, 1], [0, 1, 1]
-    cells = np.array([cellpar_to_cell(cell_to_cellpar(c)).flatten() 
+    # the DeePMD model may crash for left-handed cells, so we convert
+    # the cell parameters to the right-handed ones.
+    cells = np.array([cellpar_to_cell(cell_to_cellpar(c)).flatten() \
+                      if np.linalg.det(c) < 0 else c
                       for c in data['cells']]).reshape(-1, 9)
     return dpmodel.eval_descriptor(
         coords=data['coords'],
